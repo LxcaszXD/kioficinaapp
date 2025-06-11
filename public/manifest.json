@@ -1,0 +1,42 @@
+{
+    "name": "Aplicativo Ki-Oficina",
+    "short_name": "Ki-Oficina",
+    "description": "Aplicativo para agendamento de serviços",
+    "start_url": "index.php",
+    "display": "standalone",
+    "theme_color": "#1a1a1a",
+    "background_color": "#1a1a1a",
+    "id": "/public/kioficinapp/lucas/aluno/agenciatipi02.smpsistema.com.br",
+    "orientation": "portrait",
+    "launch_handler": {
+        "client_mode": "focus-existing"
+    },
+    "icons":[
+        {
+            "src": "assets/img/logo-preto.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/img/logo-preto.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "assets/img/tela-login.png",
+            "sizes": "540x960",
+            "type": "image/png",
+            "label": "Tela de Login"
+        },
+        {
+            "src": "assets/img/tela-menu.png",
+            "sizes": "540x960",
+            "type": "image/png",
+            "label": "Tela do Menu"
+        }
+    ]
+}

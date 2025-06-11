@@ -1,0 +1,893 @@
+/* ===========================================
+   VARIÁVEIS GLOBAIS E CONFIGURAÇÕES DE FONTE
+   =========================================== */
+:root {
+    /* Cores */
+    --corDoTexto: #ffffff;
+    --corDeFundo: #101010;
+    --titulos-color: #ffff00;
+    --border-color: #ffffff;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --primary-color: #FFFF00;
+
+    /* Fontes */
+    --fontNoCorpo: "Sofast", Arial, sans-serif;
+    --titulos: 'PACE', Arial, sans-serif;
+}
+
+@font-face {
+    font-family: 'PACE';
+    src: url('../fonts/pace-racing-car/PACE.woff2') format('woff2'),
+        url('../fonts/pace-racing-car/PACE.woff') format('woff'),
+        url('../fonts/pace-racing-car/PACE.ttf') format('truetype'),
+        url('../fonts/pace-racing-car/PACE.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Sofast';
+    src: url('../fonts/sofast-racing-car/Sofast Regular/Sofast.woff2') format('woff2'),
+        url('../fonts/sofast-racing-car/Sofast Regular/Sofast.woff') format('woff'),
+        url('../fonts/sofast-racing-car/Sofast Regular/Sofast.ttf') format('truetype'),
+        url('../fonts/sofast-racing-car/Sofast Regular/Sofast.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* ======================
+   RESET E ESTILOS BASE
+   ====================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: var(--white-color);
+    text-align: center;
+    padding: 20px;
+}
+
+a {
+    color: var(--black-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ======================
+   LAYOUT PRINCIPAL
+   ====================== */
+.container {
+    max-width: 600px;
+    margin: 50px auto 0;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* ======================
+   COMPONENTES COMUNS
+   ====================== */
+/* Logo */
+.logo {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Títulos */
+h1,
+h2,
+h3,
+.title,
+.welcome-title,
+.page-title {
+    color: var(--titulos-color);
+    text-transform: uppercase;
+    font-family: var(--titulos);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+.username {
+    font-family: var(--fontNoCorpo);
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+/* Cards */
+.card {
+    background-color: #555;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.card p {
+    margin: 10px 0;
+}
+
+
+.info {
+    /* background-color: #f9f9f9; */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.status {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Status */
+.status {
+    font-weight: bold;
+}
+
+.status-analise {
+    color: #f00;
+}
+
+.status-concluido {
+    color: #0f0;
+}
+
+.status-andamento {
+    color: #00f;
+}
+
+/* ======================
+   FORMULÁRIOS
+   ====================== */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    color: var(--white-color);
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #444;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: var(--white-color);
+    font-size: 14px;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* ======================
+   BOTÕES
+   ====================== */
+.btn,
+.button,
+.menu-button,
+.btn-voltar {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: var(--primary-color);
+    color: var(--black-color);
+    border: none;
+    border-radius: 5px;
+    font-family: var(--titulos);
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.btn:hover,
+.button:hover,
+.menu-button:hover,
+.btn-voltar:hover {
+    background-color: #e6b800;
+}
+
+/* Botões secundários */
+.btn-secondary,
+.menu-button.exit {
+    background-color: transparent;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+}
+
+.menu-button.exit {
+    background-color: #ff3333;
+    border: none;
+}
+
+.menu-button.exit:hover {
+    background-color: #cc0000;
+}
+
+/* Grupos de botões */
+.button-group,
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+/* ======================
+   PÁGINA DE LOGIN (ATUALIZADO)
+   ====================== */
+body.page-login {
+    background-color: var(--corDeFundo);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.page-login .container {
+    max-width: 400px;
+    background-color: #222;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+.page-login .logo {
+    width: 150px;
+    margin-bottom: 25px;
+}
+
+.page-login .login-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+.page-login .login-box {
+    background-color: #333;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.page-login .input-group {
+    margin-bottom: 20px;
+}
+
+.page-login .input-group input {
+    padding: 12px;
+    font-size: 16px;
+}
+
+.page-login .login-button {
+    font-size: 18px;
+    padding: 16px;
+}
+
+/* ======================
+   PÁGINA DE DEPOIMENTOS (VERSÃO MELHORADA)
+   ====================== */
+   body.page-depoimento {
+    background-color: var(--corDeFundo);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#depoimento .container {
+    max-width: 500px;
+    background: rgba(40, 40, 40, 0.9);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#depoimento h2 {
+    color: var(--titulos-color);
+    font-family: var(--titulos);
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#depoimento form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#depoimento label {
+    display: block;
+    color: var(--white-color);
+    font-family: var(--titulos);
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#depoimento textarea {
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    background: rgba(60, 60, 60, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--white-color);
+    font-size: 16px;
+    resize: none;
+    transition: all 0.3s ease;
+    font-family: var(--fontNoCorpo);
+}
+
+#depoimento textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 255, 0, 0.2);
+    background: rgba(70, 70, 70, 0.7);
+}
+
+/* Estrelas de avaliação */
+#depoimento .stars {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0 20px;
+}
+
+#depoimento .stars input {
+    display: none;
+}
+
+#depoimento .stars label {
+    color: #777;
+    font-size: 32px;
+    cursor: pointer;
+    transition: all 0.2s;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+#depoimento .stars label:hover,
+#depoimento .stars label:hover ~ label {
+    color: #ffcc00;
+}
+
+#depoimento .stars input:checked ~ label {
+    color: var(--primary-color);
+}
+
+/* Botões */
+#depoimento button[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--black-color);
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--titulos);
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+}
+
+#depoimento button[type="submit"]:hover {
+    background: #ffdb00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 219, 0, 0.3);
+}
+
+#depoimento .btn {
+    background: transparent;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+    padding: 15px;
+    border-radius: 8px;
+    font-family: var(--titulos);
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+#depoimento .btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    #depoimento .container {
+        padding: 25px;
+    }
+    
+    #depoimento h2 {
+        font-size: 24px;
+    }
+    
+    #depoimento .stars label {
+        font-size: 28px;
+    }
+    
+    #depoimento button[type="submit"],
+    #depoimento .btn {
+        padding: 14px;
+        font-size: 16px;
+    }
+}
+
+/* ======================
+   PÁGINA DE AGENDAMENTO
+   ====================== */
+body.page-agendamento .container {
+    max-width: 500px;
+}
+
+.page-agendamento .page-title {
+    font-size: 28px;
+    margin: 20px 0;
+    letter-spacing: 1px;
+}
+
+.page-agendamento .agendamento-form {
+    background-color: #444;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.page-agendamento .form-group {
+    margin-bottom: 20px;
+}
+
+.page-agendamento .form-label {
+    display: block;
+    color: var(--white-color);
+    font-family: var(--titulos);
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.page-agendamento .form-select,
+.page-agendamento .form-input {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: var(--white-color);
+    font-size: 16px;
+}
+
+.page-agendamento .form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.page-agendamento .form-row .form-group {
+    flex: 1;
+}
+
+.page-agendamento .form-actions {
+    margin-top: 30px;
+}
+
+.page-agendamento .btn-primary {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: var(--black-color);
+    border: none;
+    border-radius: 5px;
+    font-family: var(--titulos);
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.page-agendamento .secondary-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.page-agendamento .btn-secondary {
+    flex: 1;
+    padding: 15px;
+    background-color: transparent;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+    border-radius: 5px;
+    font-family: var(--titulos);
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+/* ======================
+   PÁGINA DE LOGIN (VERSÃO MELHORADA)
+   ====================== */
+body.page-login {
+    /* background: linear-gradient(135deg, #1a1a1a 0%, #101010 100%); */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: var(--fontNoCorpo);
+}
+
+.page-login .container {
+    max-width: 420px;
+    /* background: rgba(40, 40, 40, 0.9); */
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.page-login .logo {
+    width: 180px;
+    margin: 0 auto 30px;
+    /* filter: drop-shadow(0 4px 8px rgba(255, 255, 0, 0.3));
+    transition: transform 0.3s ease; */
+}
+
+.page-login .logo:hover {
+    transform: scale(1.05);
+}
+
+.page-login .login-title {
+    color: var(--titulos-color);
+    font-family: var(--titulos);
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.page-login .login-box {
+    background: rgba(30, 30, 30, 0.7);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.page-login .input-group {
+    margin-bottom: 25px;
+}
+
+.page-login .input-group label {
+    display: block;
+    color: var(--white-color);
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.page-login .input-group input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(60, 60, 60, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--white-color);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.page-login .input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 255, 0, 0.2);
+    background: rgba(70, 70, 70, 0.7);
+}
+
+.page-login .forgot-password {
+    text-align: right;
+    margin: 20px 0 25px;
+}
+
+.page-login .forgot-password a {
+    color: var(--primary-color);
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.page-login .forgot-password a:hover {
+    text-decoration: underline;
+    color: #e6b800;
+}
+
+.page-login .login-button {
+    width: 100%;
+    padding: 17px;
+    background: var(--primary-color);
+    color: var(--black-color);
+    border: none;
+    border-radius: 8px;
+    font-family: var(--titulos);
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.page-login .login-button:hover {
+    background: #ffdb00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 219, 0, 0.3);
+}
+
+
+/* ======================
+   RESPONSIVIDADE
+   ====================== */
+@media (max-width: 480px) {
+    .container {
+        margin-top: 20px;
+        padding: 15px;
+    }
+
+    .page-login .container {
+        padding: 20px;
+    }
+
+    .page-login .logo {
+        width: 120px;
+    }
+
+    .page-perfil .profile-pic {
+        width: 80px;
+        height: 80px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .page-depoimento .container {
+        padding: 20px;
+    }
+
+    .page-depoimento .depoimento-title {
+        font-size: 24px;
+    }
+
+    .page-depoimento .depoimento-box {
+        padding: 20px;
+    }
+
+    .page-depoimento .star {
+        font-size: 26px;
+    }
+
+    .page-agendamento .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .page-agendamento .secondary-actions {
+        flex-direction: column;
+    }
+
+    .page-agendamento .page-title {
+        font-size: 24px;
+    }
+}
+
+
+/* ======================
+   PÁGINA DE PERFIL (VERSÃO MELHORADA)
+   ====================== */
+body.page-perfil {
+    background: linear-gradient(135deg, #1a1a1a 0%, #101010 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+body.page-perfil h1 {
+    color: var(--titulos-color);
+    font-family: var(--titulos);
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+body.page-perfil .profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 30px;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 8px rgba(255, 255, 0, 0.3);
+}
+
+body.page-perfil .container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: rgba(40, 40, 40, 0.9);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.page-perfil label {
+    display: block;
+    color: var(--white-color);
+    font-size: 15px;
+    margin: 15px 0 8px;
+    text-align: left;
+    font-weight: 500;
+}
+
+body.page-perfil input,
+body.page-perfil select {
+    width: 100%;
+    padding: 14px;
+    background: rgba(60, 60, 60, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--white-color);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+body.page-perfil input:focus,
+body.page-perfil select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(255, 255, 0, 0.2);
+}
+
+body.page-perfil .btn {
+    margin-top: 30px;
+    padding: 16px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+body.page-perfil .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 219, 0, 0.3);
+}
+
+body.page-perfil .btn-secondary {
+    background: transparent;
+    color: var(--white-color);
+    border: 1px solid var(--white-color);
+    margin-top: 15px;
+}
+
+body.page-perfil .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* ======================
+   PÁGINA DE RECUPERAÇÃO DE SENHA
+   ====================== */
+   body.page-recuperar {
+    background-color: var(--corDeFundo);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: var(--fontNoCorpo);
+}
+
+.page-recuperar .container {
+    max-width: 400px;
+    background-color: #222;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.page-recuperar h1 {
+    color: var(--titulos-color);
+    font-family: var(--titulos);
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.page-recuperar .input-group {
+    margin-bottom: 25px;
+}
+
+.page-recuperar .input-group label {
+    display: block;
+    color: var(--white-color);
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.page-recuperar .input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    color: var(--white-color);
+    font-size: 16px;
+}
+
+.page-recuperar .btn {
+    margin-top: 10px;
+}
